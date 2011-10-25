@@ -1,12 +1,14 @@
 class YouTrack::Connection
-  attr_accessor :username, :password, :host, :url
+  attr_accessor :username, :password, :host
 
   def initialize(opts = {})
     opts.each do |k,v|
       self.send("#{k}=", v)
     end
-    # TODO: move to method
-    self.url = "https://#{username}:#{password}@#{host}" if username and password and host
+  end
+
+  def url
+    "https://#{username}:#{password}@#{host}" if username and password and host
   end
 
   def issues
