@@ -1,0 +1,7 @@
+h1. Youtrack Ruby Library
+
+<pre><code>
+YouTrack.connection(:url      => "", 
+                    :username => "", 
+                    :password => "")
+</code></pre>
