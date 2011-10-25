@@ -7,7 +7,6 @@ module YouTrack
   end
 end
 
-require "#{File.dirname(__FILE__)}/youtrack/hash_xml_extension"
-require "#{File.dirname(__FILE__)}/youtrack/exceptions"
-require "#{File.dirname(__FILE__)}/youtrack/connection"
-require "#{File.dirname(__FILE__)}/youtrack/issue"
+Dir["#{File.dirname(__FILE__)}/youtrack/*.rb"].each do |path|
+  require path
+end

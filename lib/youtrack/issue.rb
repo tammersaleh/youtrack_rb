@@ -12,12 +12,14 @@ class YouTrack::Issue
   end
 
   def [](key)
-    translated_xml_value(@values[:attributes][key.to_sym])
+    translated_xml_value(@values[key.to_sym])
   end
 
   def translated_xml_value(v)
     if v.to_s =~ /\d{13}/
-      Time.at(v / 1000)
+      Time.at(v.to_i / 1000)
+    elsif v.to_s =~ /^\d+$/
+      v.to_i
     else
       v
     end
